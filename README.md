@@ -15,7 +15,7 @@ The React Compiler is not enabled on this template because of its impact on dev 
 
 If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
 
-## Instalation process
+## 1.- Instalation process
 
 step by step installation from terminal command line to install vite + React + JavaScript:
 
@@ -26,3 +26,22 @@ npm create vite@latest
 
 > **Note:** after vite tooling install, the app won't display, so an extra configuration step must me done
 > at vite.config.js.
+
+## 2.- vite configuration
+
+right after installation, vite conf vite will need additional configuration in order to show the app:
+
+```bash
+# vite conf adds host true + port 5173 (to ensure the port) 
+import { defineConfig } from 'vite'
+import react from '@vitejs/plugin-react'
+
+// https://vite.dev/config/
+export default defineConfig({
+  plugins: [react()],
+  server: {
+    host: true,
+    port: 5173, // Opcional, para asegurar el puerto
+  }
+})
+```
