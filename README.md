@@ -45,3 +45,6 @@ export default defineConfig({
   }
 })
 ```
+
+> **Note:** after tailwind command, add @tailwind tag ( generate color project color palette and branding )
+> to index.css and also tailwindcss() plugin vite config.
