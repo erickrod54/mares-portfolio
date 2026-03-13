@@ -1,13 +1,34 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>mares-portfolio</title>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
-  </body>
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>mares-portfolio</title>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org/",
+      "@type": "Person",
+      "name": "Erika M. Rodriguez",
+      "jobTitle": "Sterile Processing Tech | Assistant Manager",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Port St. Lucie",
+        "addressRegion": "FL"
+      },
+      "hasCredential": {
+        "@type": "EducationalOccupationalCredential",
+        "name": "CBSPD Certified Sterile Processing Technician"
+      },
+      "knowsAbout": ["Sterile Processing", "Healthcare Management", "KPI Tracking", "SPM", "CensiTrac"]
+    }
+    </script>
+</head>
+
+<body>
+  <div id="root"></div>
+  <script type="module" src="/src/main.jsx"></script>
+</body>
+
 </html>
