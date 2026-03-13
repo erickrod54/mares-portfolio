@@ -1,54 +1,53 @@
 import React from 'react';
 import { useTheme } from './contexts/theme.context';
+import { Button } from './components/ui/button'; 
 
 export default function App() {
   const { theme, toggleTheme } = useTheme();
 
   return (
-    <div className="min-h-screen bg-main-bg text-main-text p-8 transition-colors duration-300">
-      
-      {/* Header Area */}
-      <header className="max-w-4xl mx-auto flex justify-between items-center mb-16 border-b border-brand-silver/30 pb-6">
+    <>
+      <header>
         <div>
-          <h1 className="text-2xl font-bold tracking-tight uppercase">Erika Rodriguez</h1>
-          <p className="text-sm font-mono text-brand-teal uppercase tracking-widest">Finance & Sterile Operations</p>
+          <h1>Erika Rodriguez</h1>
+          <p className="text-brand-teal uppercase tracking-[0.2em] font-mono">
+            Finance & Sterile Operations
+          </p>
         </div>
-        
-        <button 
+        <Button 
           onClick={toggleTheme}
-          className="px-4 py-2 rounded-brand bg-brand-navy text-brand-silver font-medium text-sm hover:ring-2 hover:ring-brand-teal transition-all"
+          variant="outline"
+          className="w-full sm:w-auto border-brand-teal text-brand-teal"
         >
           {theme === 'light' ? '🌙 Dark Mode' : '☀️ Light Mode'}
-        </button>
+        </Button>
       </header>
 
-      <main className="max-w-4xl mx-auto space-y-12">
-        <section className="bg-main-surface p-8 rounded-brand shadow-sm border border-brand-silver/20">
-          <h2 className="text-lg font-bold mb-4 border-l-4 border-brand-teal pl-4 uppercase tracking-tighter">
-            Option 1: Technical Precision
-          </h2>
-          <p className="leading-relaxed opacity-80">
-            Currently viewing the <strong>{theme}</strong> theme. This palette leverages Deep Navy for stability 
-            and Medical Teal for professional clarity.
+      <main>
+        <section className="bg-main-text/5 p-6 sm:p-10 rounded-brand shadow-sm">
+          <h2>Brand Concept: Technical Precision</h2>
+          <p>
+            Visual identity built on authority and hygiene. 
+            The deep navy provides financial trust, while medical teal 
+            bridges sterile environments with modern digital systems.
           </p>
         </section>
 
-        {/* Swatches will now respond automatically to the 'dark' class on <html> */}
-        <section className="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
-          <div className="space-y-2">
-            <div className="h-32 w-full bg-brand-navy rounded-brand shadow-lg" />
-            <p className="text-xs font-bold uppercase tracking-tighter">Deep Navy</p>
-          </div>
-          <div className="space-y-2">
-            <div className="h-32 w-full bg-brand-teal rounded-brand shadow-lg" />
-            <p className="text-xs font-bold uppercase tracking-tighter">Medical Teal</p>
-          </div>
-          <div className="space-y-2">
-            <div className="h-32 w-full bg-brand-silver rounded-brand shadow-lg border border-black/5" />
-            <p className="text-xs font-bold uppercase tracking-tighter">Silver Steel</p>
-          </div>
+        {/* You still use Tailwind grid here because grids are content-specific */}
+        <section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          {[
+            { label: 'Deep Navy', hex: '#1B263B', class: 'bg-brand-navy' },
+            { label: 'Medical Teal', hex: '#415A77', class: 'bg-brand-teal' },
+            { label: 'Silver Steel', hex: '#E0E1DD', class: 'bg-brand-silver' }
+          ].map((color) => (
+            <div key={color.label} className="group">
+              <div className={`${color.class} h-40 lg:h-56 w-full rounded-brand shadow-lg mb-3`} />
+              <h3 className="font-bold uppercase tracking-widest">{color.label}</h3>
+              <p className="font-mono opacity-50">{color.hex}</p>
+            </div>
+          ))}
         </section>
       </main>
-    </div>
+    </>
   );
 }
