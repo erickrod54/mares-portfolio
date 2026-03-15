@@ -1,12 +1,12 @@
 import Navbar from "./layout/navbar.component";
+import Experience from "./sections/experience.component";
 import Hero from "./sections/hero.component";
 import SkillGrid from "./sections/skills.grid.component";
 
 
-
-/** ErikaM-branding - Portfolio version 1.03 - Features: 
+/** ErikaM-branding - Portfolio version 1.04 - Features: 
  * 
- *    --> Adding SkillsGrid section
+ *    --> Adding Experience section
  * 
  * Note: 'TailwindTest' is a component to test 
  * tailwind 
@@ -23,6 +23,7 @@ export default function App() {
         
         <Hero /> 
         <SkillGrid />
+        <Experience />
       </main>
       
     </div>
