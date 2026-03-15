@@ -1,15 +1,15 @@
 import Navbar from "./layout/navbar.component";
 import Experience from "./sections/experience.component";
+import GoogleAuthority from "./sections/google.authority.component";
 import Hero from "./sections/hero.component";
 import SkillGrid from "./sections/skills.grid.component";
 
 
-/** ErikaM-branding - Portfolio version 1.04 - Features: 
+/** ErikaM-branding - Portfolio version 1.05 - Features: 
  * 
- *    --> Adding Experience section
+ *    --> Adding GoogleAuthority section
  * 
- * Note: 'TailwindTest' is a component to test 
- * tailwind 
+ * Note: this component will need some extra development to adapt the reviews
  */
 
 export default function App() {
@@ -24,6 +24,7 @@ export default function App() {
         <Hero /> 
         <SkillGrid />
         <Experience />
+        <GoogleAuthority />
       </main>
       
     </div>
