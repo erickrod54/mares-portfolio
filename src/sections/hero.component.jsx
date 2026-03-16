@@ -3,9 +3,9 @@ import { Button } from "@/ui/button.ui.component";
 import { ShieldCheck, FileText, ArrowRight } from "lucide-react";
 import ResumeErikam from '../assets/Erika_Rodriguez_Resume_CBSPD.pdf'
 
-/** ErikaM-branding - Portfolio version 1.06 - Features: 
+/** ErikaM-branding - Portfolio version 1.07 - Features: 
  * 
- *    --> Updating Download button with Erika resume
+ *    --> Updating View Leadership hsitory button
  * 
  * Note: 'TailwindTest' is a component to test 
  * tailwind 
@@ -37,7 +37,9 @@ export default function Hero() {
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start pt-4">
             <Button size="lg" className="group">
-              View Leadership History
+              <a href="#experience">
+                 View Leadership History
+              </a>
               <ArrowRight className="ml-2 w-4 h-4 transition-transform group-hover:translate-x-1" />
             </Button>
             <Button 
