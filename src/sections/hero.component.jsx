@@ -1,10 +1,11 @@
 import { Badge } from "@/ui/badge.ui.component";
 import { Button } from "@/ui/button.ui.component";
 import { ShieldCheck, FileText, ArrowRight } from "lucide-react";
+import ResumeErikam from '../assets/Erika_Rodriguez_Resume_CBSPD.pdf'
 
-/** ErikaM-branding - Portfolio version 1.02 - Features: 
+/** ErikaM-branding - Portfolio version 1.06 - Features: 
  * 
- *    --> Fixing 'Badge' and 'Button' imports
+ *    --> Updating Download button with Erika resume
  * 
  * Note: 'TailwindTest' is a component to test 
  * tailwind 
@@ -39,9 +40,15 @@ export default function Hero() {
               View Leadership History
               <ArrowRight className="ml-2 w-4 h-4 transition-transform group-hover:translate-x-1" />
             </Button>
-            <Button size="lg" variant="outline">
-              Download CV
-              <FileText className="ml-2 w-4 h-4" />
+            <Button 
+              size="lg" 
+              variant="outline" 
+              asChild // If your button is from shadcn, use asChild to wrap an <a> tag
+            >
+              <a href={ResumeErikam} download="Erika_Rodriguez_Resume.pdf">
+                Download CV
+                <FileText className="ml-2 w-4 h-4" />
+              </a>
             </Button>
           </div>
         </div>
