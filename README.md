@@ -44,7 +44,12 @@ npm create vite@latest
 ```
 
 > **Note:** after vite tooling install, the app won't display, so an extra configuration step must me done
-> at vite.config.js.
+> at vite.config.js, if it does not throw the option experimental no, try the stable vite version.
+
+```bash
+#Here replace the X with the number of the stable version
+npm create vite@X
+```
 
 ## 2.- vite configuration
 
@@ -98,6 +103,21 @@ npm install @vitejs/plugin-basic-ssl
 npm run dev
 ```
 
+## Tailwind install
+
+tailwind after version 4 does not requiere postfix conf file
+
+```bash
+npm install tailwindcss @tailwindcss/vite
+```
+
+> **Note:** right after tailwind installation add the tailwindcss directive to index css.
+
+```bash
+#adding directive to index.css
+import "tailwindcss";
+```
+
 rigght after basicSsl instalation, the configuration has to be added to vite.config:
 
 ```bash
@@ -130,6 +150,22 @@ In modern ESM environments, Node.js does not globally recognize variables like `
 
 1. **Configure Path Aliases (`@/`):** Allow Vite to map `@` to the `/src` directory.
 2. **Fix Editor Warnings:** Resolve "not defined" errors in `vite.config.js` when using the `path` module.
+
+## 📥 Step-by-Step Installation
+
+### 1. Preparation & Typing
+
+Install the base dependencies and Node definitions so your configuration files work without errors.
+
+```bash
+npm install
+npm install -D @types/node
+```
+
+> [!IMPORTANT]
+> Ensure your `vite.config.js` defines `__dirname` manually (using `fileURLToPath`) so that shadcn aliases work correctly in ESM modules.
+
+then the conf file should be updated as this:
 
 ```bash
 // fileURLToPath, path plus manual __dirname __filename as resolve section must 
@@ -166,21 +202,20 @@ export default defineConfig({
 })
 ```
 
-## 📥 Step-by-Step Installation
-
-### 1. Preparation & Typing
-
-Install the base dependencies and Node definitions so your configuration files work without errors.
+### 2. make the jsconfig.json file
 
 ```bash
-npm install
-npm install -D @types/node
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./src/*"]
+    }
+  }
+}
 ```
 
-> [!IMPORTANT]
-> Ensure your `vite.config.js` defines `__dirname` manually (using `fileURLToPath`) so that shadcn aliases work correctly in ESM modules.
-
-### 2. shadcn/ui Initialization
+### 3. shadcn/ui Initialization
 
 This command sets up the `components.json` file and the style utilities (`cn`, `cva`, `twMerge`) in one go.
 
