@@ -2,9 +2,9 @@ import { Button } from "@/components/ui/button";
 import { useTheme } from "@/contexts/theme.context";
 import { Moon, Sun } from "lucide-react";
 
-/** ErikaM-branding - Portfolio version 1.01 - Features: 
+/** ErikaM-branding - Portfolio version 1.07 - Features: 
  * 
- *    --> Removing dark: tag and fixing Erika M Rodriguez color on light mode 
+ *    --> Fixing Clinical to Healthcare
  * 
  * Note: 'TailwindTest' is a component to test 
  * tailwind 
@@ -25,7 +25,7 @@ export default function Navbar() {
             Erika M Rodriguez
           </span>
           <span className="text-[10px] font-mono text-brand-teal uppercase tracking-[0.2em] -mt-1">
-            Clinical Leadership
+            Healthcare Leadership
           </span>
         </div>
 
