@@ -1,3 +1,4 @@
+import Footer from "./layout/footer.component";
 import Navbar from "./layout/navbar.component";
 import Experience from "./sections/experience.component";
 import GoogleAuthority from "./sections/google.authority.component";
@@ -5,9 +6,10 @@ import Hero from "./sections/hero.component";
 import SkillGrid from "./sections/skills.grid.component";
 
 
-/** ErikaM-branding - Portfolio version 1.05 - Features: 
+
+/** ErikaM-branding - Portfolio version 1.06 - Features: 
  * 
- *    --> Adding GoogleAuthority section
+ *    --> Fixing imports 
  * 
  * Note: this component will need some extra development to adapt the reviews
  */
@@ -26,6 +28,8 @@ export default function App() {
         <Experience />
         <GoogleAuthority />
       </main>
+
+      <Footer />
       
     </div>
   );

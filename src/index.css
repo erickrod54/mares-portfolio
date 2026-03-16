@@ -4,6 +4,8 @@
   --brand-navy: 222 47% 17%;
   --brand-teal: 213 29% 36%;
   --brand-silver: 80 5% 87%;
+  /* Added Yellow for the Stars */
+  --brand-yellow: 45 93% 47%;
   --main-bg: 0 0% 100%;
   --main-text: 222 47% 17%;
 }
@@ -17,6 +19,8 @@
   --color-brand-navy: hsl(var(--brand-navy));
   --color-brand-teal: hsl(var(--brand-teal));
   --color-brand-silver: hsl(var(--brand-silver));
+  --color-brand-yellow: hsl(var(--brand-yellow));
+  /* Registered here */
   --color-main-bg: hsl(var(--main-bg));
   --color-main-text: hsl(var(--main-text));
   --radius-brand: 0.5rem;
