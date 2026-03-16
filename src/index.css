@@ -3,8 +3,8 @@
 :root {
   --brand-navy: 222 47% 17%;
   --brand-teal: 213 29% 36%;
-  --brand-silver: 80 5% 87%;
-  /* Added Yellow for the Stars */
+  /* FIXED: Dropped lightness from 87% to 40% so text is visible in light mode */
+  --brand-silver: 222 15% 40%;
   --brand-yellow: 45 93% 47%;
   --main-bg: 0 0% 100%;
   --main-text: 222 47% 17%;
@@ -12,7 +12,9 @@
 
 .dark {
   --main-bg: 217 33% 7%;
-  --main-text: 80 5% 87%;
+  --main-text: 210 20% 90%;
+  /* FIXED: Set back to a light silver (75%) so it pops against the dark background */
+  --brand-silver: 210 10% 75%;
 }
 
 @theme {
@@ -20,7 +22,6 @@
   --color-brand-teal: hsl(var(--brand-teal));
   --color-brand-silver: hsl(var(--brand-silver));
   --color-brand-yellow: hsl(var(--brand-yellow));
-  /* Registered here */
   --color-main-bg: hsl(var(--main-bg));
   --color-main-text: hsl(var(--main-text));
   --radius-brand: 0.5rem;
@@ -31,7 +32,6 @@
    ========================================= */
 @layer base {
 
-  /* 1. Prevent mobile horizontal scrolling (Fixes the squished bug) */
   html,
   body {
     @apply antialiased transition-colors duration-300;
@@ -40,34 +40,31 @@
     color: var(--color-main-text);
   }
 
-  /* 2. The Main Container: Max width for 4K, padded for mobile */
   main {
     @apply w-full max-w-screen-2xl mx-auto px-4 sm:px-8 lg:px-16 py-8;
   }
 
-  /* 3. Sections auto-space themselves */
   section {
     @apply w-full mb-16 sm:mb-24;
   }
 
-  /* 4. Fluid Typography (Scales smoothly from Mobile to 4K) */
   h1 {
     font-size: clamp(1.75rem, 5vw, 3.5rem);
-    /* Min 28px, Max 56px */
     @apply font-black tracking-tighter uppercase italic mb-2;
   }
 
   h2 {
     font-size: clamp(1.25rem, 3vw, 1.75rem);
-    @apply font-bold mb-4 border-l-4 border-brand-teal pl-4 uppercase tracking-tighter;
+    /* Changed border to teal to match branding */
+    @apply font-bold mb-4 border-l-4 border-brand-teal pl-4 uppercase tracking-tighter text-main-text;
   }
 
   p {
     font-size: clamp(0.875rem, 1.5vw, 1rem);
-    @apply leading-relaxed opacity-80;
+    /* Use main-text instead of opacity for cleaner readability */
+    @apply leading-relaxed text-main-text/80;
   }
 
-  /* 5. Auto-Responsive Header */
   header {
     @apply flex flex-col sm:flex-row justify-between items-center gap-6 mb-12 border-b border-brand-silver/30 pb-8 text-center sm:text-left w-full max-w-screen-2xl mx-auto px-4 sm:px-8 lg:px-16 mt-8;
   }
